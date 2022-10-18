@@ -20,6 +20,8 @@ class LabelFactoryTest {
         LabelFactory labelFactory = new LabelFactory(
                 new ConsoleAppender<>(),
                 "log_level",
+                "thread_name",
+                "logger_name",
                 thisIsADuplicateAndShouldBeDropped,
                 thisShouldStay,
                 thisTooShouldStay
@@ -45,6 +47,8 @@ class LabelFactoryTest {
         LabelFactory labelFactory = new LabelFactory(
                 new ConsoleAppender<>(),
                 "log_level",
+                "thread_name",
+                "logger_name",
                 thisShouldStayToo,
                 thisShouldStay,
                 invalidNameShouldBeDropped
@@ -68,6 +72,8 @@ class LabelFactoryTest {
 
         LabelFactory labelFactory = new LabelFactory(
                 new ConsoleAppender<>(),
+                null,
+                null,
                 null,
                 label2,
                 label1
@@ -94,6 +100,8 @@ class LabelFactoryTest {
         LabelFactory labelFactory = new LabelFactory(
                 new ConsoleAppender<>(),
                 logLevelLabel,
+                null,
+                null,
                 thisShouldBeRemovedDueToConflict,
                 thisShouldStay
         );
@@ -120,8 +128,10 @@ class LabelFactoryTest {
     void shouldDisableLogLevelLabelIfItHasInvalidName() {
         // Given
         String logLevelLabel = "log-level";
+        String threadNameLabel = "thread-name";
+        String loggerNameLabel = "logger-name";
 
-        LabelFactory labelFactory = new LabelFactory(new ConsoleAppender<>(), logLevelLabel);
+        LabelFactory labelFactory = new LabelFactory(new ConsoleAppender<>(), logLevelLabel, threadNameLabel, loggerNameLabel);
 
         // When
         String actual = labelFactory.validateLogLevelLabel(new HashMap<>());
@@ -134,7 +144,9 @@ class LabelFactoryTest {
     void shouldHandleDisabledLogLevelLabel() {
         // Given
         String logLevelLabel = null;
-        LabelFactory labelFactory = new LabelFactory(new ConsoleAppender<>(), logLevelLabel);
+        String threadNameLabel = null;
+        String loggerNameLabel = null;
+        LabelFactory labelFactory = new LabelFactory(new ConsoleAppender<>(), logLevelLabel, threadNameLabel, loggerNameLabel);
 
         // When
         String actual = labelFactory.validateLogLevelLabel(new HashMap<>());

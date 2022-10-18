@@ -30,6 +30,8 @@ public abstract class LokiAppenderConfigurator extends UnsynchronizedAppenderBas
     private boolean useOffHeapBuffer = true;
 
     private String logLevelLabel;
+    private String threadNameLabel;
+    private String loggerNameLabel;
     private final List<String> mdcLogLabels = new ArrayList<>();
 
     private long batchSize = 10_2400;
@@ -144,6 +146,22 @@ public abstract class LokiAppenderConfigurator extends UnsynchronizedAppenderBas
 
     public void setLogLevelLabel(String logLevelLabel) {
         this.logLevelLabel = logLevelLabel;
+    }
+
+    public String getThreadNameLabel() {
+        return threadNameLabel;
+    }
+
+    public void setThreadNameLabel(String threadNameLabel) {
+        this.threadNameLabel = threadNameLabel;
+    }
+
+    public String getLoggerNameLabel() {
+        return loggerNameLabel;
+    }
+
+    public void setLoggerNameLabel(String loggerNameLabel) {
+        this.loggerNameLabel = loggerNameLabel;
     }
 
     public void setBatchSize(long batchSize) {

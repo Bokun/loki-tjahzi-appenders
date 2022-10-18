@@ -17,15 +17,21 @@ public class LabelFactory {
     private final ContextAware internalLogger;
 
     private final String logLevelLabel;
+    private final String threadNameLabel;
+    private final String loggerNameLabel;
     private final Label[] labels;
 
     public LabelFactory(
             ContextAware internalLogger,
             String logLevelLabel,
+            String threadNameLabel,
+            String loggerNameLabel,
             Label... labels
     ) {
         this.internalLogger = internalLogger;
         this.logLevelLabel = logLevelLabel;
+        this.threadNameLabel = threadNameLabel;
+        this.loggerNameLabel = loggerNameLabel;
         this.labels = labels;
     }
 
@@ -36,9 +42,31 @@ public class LabelFactory {
 
     public String validateLogLevelLabel(HashMap<String, String> existingLabels) {
         if (logLevelLabel != null) {
-            return validateLogLevelLabelAgainst(
+            return validateLabelAgainst(
                     existingLabels,
                     logLevelLabel
+            );
+        }
+
+        return null;
+    }
+
+    public String validateThreadNameLabel(HashMap<String, String> existingLabels) {
+        if (threadNameLabel != null) {
+            return validateLabelAgainst(
+                    existingLabels,
+                    threadNameLabel
+            );
+        }
+
+        return null;
+    }
+
+    public String validateLoggerNameLabel(HashMap<String, String> existingLabels) {
+        if (loggerNameLabel != null) {
+            return validateLabelAgainst(
+                    existingLabels,
+                    loggerNameLabel
             );
         }
 
@@ -89,15 +117,15 @@ public class LabelFactory {
         return lokiLabels;
     }
 
-    private String validateLogLevelLabelAgainst(
+    private String validateLabelAgainst(
             Map<String, String> existingLabels,
-            String logLevelLabel
+            String label
     ) {
-        if (!Label.hasValidName(logLevelLabel)) {
+        if (!Label.hasValidName(label)) {
             internalLogger.addWarn(
                     String.format(
-                            "Ignoring log level label '%s' - contains invalid characters. %s\n",
-                            logLevelLabel,
+                            "Ignoring log label '%s' - contains invalid characters. %s\n",
+                            label,
                             GitHubDocs.LABEL_NAMING.getLogMessage()
                     )
             );
@@ -105,15 +133,15 @@ public class LabelFactory {
             return null;
         }
 
-        if (existingLabels.remove(logLevelLabel) != null) {
+        if (existingLabels.remove(label) != null) {
             internalLogger.addWarn(
                     String.format(
-                            "Ignoring log level label '%s' - conflicts with label defined in configuration.\n",
-                            logLevelLabel
+                            "Ignoring log label '%s' - conflicts with label defined in configuration.\n",
+                            label
                     )
             );
         }
 
-        return logLevelLabel;
+        return label;
     }
 }
