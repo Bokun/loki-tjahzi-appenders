@@ -26,6 +26,10 @@ public class LokiAppender extends LokiAppenderConfigurator {
 
     private TjahziLogger logger;
     private String logLevelLabel;
+    private String threadId;
+    private String threadNameShort;
+    private String threadNameLong;
+    private String loggerName;
     private List<String> mdcLogLabels;
 
     private MutableMonitoringModuleWrapper monitoringModuleWrapper;
