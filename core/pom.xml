@@ -17,7 +17,7 @@
     <parent>
         <groupId>pl.tkowalcz.tjahzi</groupId>
         <artifactId>tjahzi-parent</artifactId>
-        <version>0.9.25-SNAPSHOT</version>
+        <version>0.9.25-bokun-SNAPSHOT</version>
     </parent>
 
     <name>core</name>
@@ -48,7 +48,7 @@
         <dependency>
             <groupId>pl.tkowalcz.tjahzi</groupId>
             <artifactId>loki-protobuf</artifactId>
-            <version>0.9.25-SNAPSHOT</version>
+            <version>0.9.25-bokun-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
         <dependency>
