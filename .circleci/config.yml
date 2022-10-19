@@ -45,6 +45,11 @@ jobs:
             find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/test-results/junit/ \;
           when: always
 
+      - run:
+          name: Deploy to S3 repository
+          command: |
+            mvn deploy -DskipTests -s .settings.xml
+
       - store_test_results:
           path: ~/test-results
 
@@ -62,7 +67,8 @@ workflows:
   version: 2
   main:
     jobs:
-      - build-and-test
+      - build-and-test:
+          context: nvirginia-test
   release:
     when: << pipeline.parameters.run_workflow_release >>
     jobs:
