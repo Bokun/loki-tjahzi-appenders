@@ -5,7 +5,7 @@
     <groupId>pl.tkowalcz.tjahzi</groupId>
     <artifactId>tjahzi-parent</artifactId>
     <packaging>pom</packaging>
-    <version>0.9.25-SNAPSHOT</version>
+    <version>0.9.25-bokun-SNAPSHOT</version>
 
     <name>Tjahzi</name>
     <description>Tjahzi is a low overhead logging client for Loki</description>
@@ -15,11 +15,11 @@
         <module>core</module>
         <module>loki-protobuf</module>
 
-        <module>logback-appender</module>
-        <module>logback-appender-nodep</module>
-
         <module>log4j2-appender</module>
         <module>log4j2-appender-nodep</module>
+
+        <module>logback-appender</module>
+        <module>logback-appender-nodep</module>
     </modules>
 
     <scm>

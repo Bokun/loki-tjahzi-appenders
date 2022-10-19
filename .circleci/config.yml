@@ -34,9 +34,9 @@ jobs:
 
       # Standard maven build and test phases
       # ########################
-#      - run:
-#          name: Verify
-#          command: mvn clean verify
+      - run:
+          name: Verify
+          command: mvn clean verify
 
       - run:
           name: Save test results
