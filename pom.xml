@@ -15,11 +15,11 @@
         <module>core</module>
         <module>loki-protobuf</module>
 
-        <module>log4j2-appender</module>
-        <module>log4j2-appender-nodep</module>
-
         <module>logback-appender</module>
         <module>logback-appender-nodep</module>
+
+        <module>log4j2-appender</module>
+        <module>log4j2-appender-nodep</module>
     </modules>
 
     <scm>
@@ -61,8 +61,8 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
 
-        <maven.compiler.testSource>9</maven.compiler.testSource>
-        <maven.compiler.testTarget>9</maven.compiler.testTarget>
+        <maven.compiler.testSource>11</maven.compiler.testSource>
+        <maven.compiler.testTarget>11</maven.compiler.testTarget>
 
         <!--suppress UnresolvedMavenProperty -->
         <gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase>

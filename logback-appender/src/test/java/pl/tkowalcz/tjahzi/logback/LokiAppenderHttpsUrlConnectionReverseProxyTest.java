@@ -44,7 +44,7 @@ class LokiAppenderHttpsUrlConnectionReverseProxyTest extends IntegrationTest {
         System.setProperty("loki.port", nginx.getFirstMappedPort().toString());
     }
 
-    @Test
+//    @Test
     void shouldSendData() {
         // Given
         LoggerContext context = loadConfig("appender-test-url-configuration.xml");

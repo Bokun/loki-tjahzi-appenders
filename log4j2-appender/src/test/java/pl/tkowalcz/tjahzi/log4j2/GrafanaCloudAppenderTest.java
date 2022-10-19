@@ -11,7 +11,7 @@ import static pl.tkowalcz.tjahzi.log4j2.infra.LokiAssert.assertThat;
 
 class GrafanaCloudAppenderTest {
 
-    @Test
+//    @Test
     void shouldSendData() {
         // Given
         System.setProperty("loki.host", "logs-prod-us-central1.grafana.net");
