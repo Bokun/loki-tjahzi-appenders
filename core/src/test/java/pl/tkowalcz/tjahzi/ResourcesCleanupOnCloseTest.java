@@ -32,7 +32,8 @@ class ResourcesCleanupOnCloseTest {
         wireMockServer = new WireMockServer(
                 wireMockConfig()
                         .dynamicPort()
-                        .dynamicHttpsPort()
+                        .httpsPort(-1)
+//                        .dynamicHttpsPort()
         );
 
         wireMockServer.start();

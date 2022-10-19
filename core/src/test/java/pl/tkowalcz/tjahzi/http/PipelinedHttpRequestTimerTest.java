@@ -5,7 +5,7 @@ import io.netty.channel.embedded.EmbeddedChannel;
 import io.netty.handler.codec.http.*;
 import io.netty.handler.ssl.SslContext;
 import org.junit.jupiter.api.Test;
-import org.testcontainers.shaded.org.apache.commons.lang.mutable.MutableLong;
+import org.testcontainers.shaded.org.apache.commons.lang3.mutable.MutableLong;
 import pl.tkowalcz.tjahzi.stats.SettableClock;
 import pl.tkowalcz.tjahzi.stats.StandardMonitoringModule;
 

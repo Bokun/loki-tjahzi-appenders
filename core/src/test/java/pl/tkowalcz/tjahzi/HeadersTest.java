@@ -33,7 +33,8 @@ class HeadersTest {
         wireMockServer = new WireMockServer(
                 wireMockConfig()
                         .dynamicPort()
-                        .dynamicHttpsPort()
+//                        .dynamicHttpsPort(-1)
+                        .httpsPort(-1)
         );
 
         wireMockServer.start();
